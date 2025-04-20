@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitVerse | BMI Hesaplama</title>
+
+    <!-- CSS dosyaları -->
+    <link rel="stylesheet" href="/src/style/navbar.css" />
+    <link rel="stylesheet" href="/src/style/bmi.css" />
+    <link rel="stylesheet" href="/src/style/footer.css" />
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+
+    <main>
+      <section class="bmi-section">
+        <h1>Vücut Kitle Endeksi (BMI) Hesaplama</h1>
+        <p>Boy ve kilonu girerek vücut kitle endeksini öğren!</p>
+
+        <form id="bmi-form">
+          <div class="input-group">
+            <label for="height">Boy (cm)</label>
+            <input type="number" id="height" required />
+          </div>
+          <div class="input-group">
+            <label for="weight">Kilo (kg)</label>
+            <input type="number" id="weight" required />
+          </div>
+          <button type="submit" class="btn-calculate">Hesapla</button>
+        </form>
+
+        <div id="bmi-result" class="result-box"></div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- JS dosyaları -->
+    <script type="module" src="/src/js/bmi.js"></script>
+    <script>
+      fetch("/src/pages/navbar.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+        });
+
+      fetch("/src/pages/footer.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>
